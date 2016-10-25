@@ -27,7 +27,8 @@ class Q438 {
         }
 
         var validStarts = [Int]()
-        for (index, char) in s.characters.enumerated() {
+        let sChars = Array(s.characters)
+        for (index, char) in sChars.enumerated() {
             let distance = getDistance(of: char)
             characterCounts[distance] -= 1
 
@@ -40,7 +41,7 @@ class Q438 {
                 validStarts.append(start)
             }
 
-            let headCharacter = s[s.index(s.startIndex, offsetBy: start)]
+            let headCharacter = sChars[start]
             let headCharacterDistance = getDistance(of: headCharacter)
             characterCounts[headCharacterDistance] += 1
         }
